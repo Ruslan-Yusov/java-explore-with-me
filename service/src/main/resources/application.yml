@@ -1,0 +1,10 @@
+server:
+  port: 8082
+spring:
+  banner:
+    location: banner-statmain.txt
+  application:
+    name: server
+logging:
+  level:
+    root: INFO
