@@ -14,13 +14,17 @@
     <dependencies>
         <dependency>
             <groupId>ru.practicum</groupId>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <artifactId>statistics-dto</artifactId>
+            <artifactId>statistics-dto</artifactId>
             <version>${parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -51,6 +55,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>42.3.8</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -119,44 +124,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-maven-plugin</artifactId>
-                <version>${kotlin.version}</version>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirs>
-                                <source>server/src/main/java</source>
-                                <source>server/src/main/kotlin</source>
-                                <source>gateway/src/main/java</source>
-                                <source>gateway/src/main/kotlin</source>
-                            </sourceDirs>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>test-compile</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>test-compile</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirs>
-                                <source>server/src/test</source>
-                                <source>gateway/src/test</source>
-                            </sourceDirs>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <jvmTarget>${maven.compiler.target}</jvmTarget>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <executions>
@@ -196,16 +163,12 @@
         </profile>
         <profile>
             <id>shareit-main-profile</id>
-            <!--activation>
-                <activeByDefault>true</activeByDefault>
-            </activation-->
             <activation>
                 <file>
                     <exists>.</exists>
                 </file>
             </activation>
             <repositories>
-                <!-- Default profile at my PC disables default maven repository, i have to override this -->
                 <repository>
                     <id>central</id>
                     <name>Default Repository</name>

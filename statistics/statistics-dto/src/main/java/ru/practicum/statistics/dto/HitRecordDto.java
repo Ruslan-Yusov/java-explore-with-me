@@ -1,14 +1,18 @@
 package ru.practicum.statistics.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 import static com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING;
 
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 public class HitRecordDto {
     private String app;
