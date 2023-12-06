@@ -1,0 +1,6 @@
+statistics-client:
+  client:
+    url: http://localhost:9090
+logging:
+  level:
+    root: INFO
